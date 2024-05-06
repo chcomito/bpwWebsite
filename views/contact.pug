@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  section.container.content-section
+    main
+      h2.contact-header Contact Us
+      h3 Get a Free Quote Today
+      h4 Leave us a little information about what you'd like to get done and well reply with a call or email in a timley manner.
+  section
+    body.form-background.background
+      form.form-container(method="POST") 
+        .input
+          label.label(for="Username") Name
+          input#uname(type="text", name="uname")
+        .input
+          label.label(for="email") Email
+          input#email(type="email", name="email")
+        .input
+          label.label(for="email") Phone Number
+          input#phone(type="tel", name="phone")
+        .input
+          label.label(for="email") Reason for Contact
+          textarea(rows="4", cols="30")
+        .input
+          input#submit(type="submit", value="Submit")   

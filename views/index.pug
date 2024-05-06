@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  section.content-section.container
+    body.background
+    h2.index-header Our Services
+    div
+    .service-row
+        div.image-container
+          h3.section-header.index-subhead Housewashing
+          p.service-item House washing is for anyone who just wants their house to look like when first bought it. Our professionals have done thousands of houses all over NJ. Along with this, we make sure to have those pesky smears on your windows nice and clean.
+          
+          img.default-image(id="pw1", src="images/pw1.jpg") 
+          img.default-image(id="pw2", src="images/pw2.jpg" style="display: none;") 
+          img.default-image(id="pw3", src="images/pw3.jpg" style="display: none;") 
+          button.btn.btn-primary(type="button" onclick="toggleVisibility()")#photoButton Photo 1 of 3
+
+    .service-row
+      div.image-container
+        h3.section-header.index-subhead Driveways
+        p.service-item Driveways are always a great first place to start if you are thinking about getting your home looking new. We can transform your driveway into into a new color completley changing the way your home looks.
+          
+          img.default-image(id="pw1", src="images/pw1.jpg") 
+          img.default-image(id="pw2", src="images/pw2.jpg" style="display: none;") 
+          img.default-image(id="pw3", src="images/pw3.jpg" style="display: none;") 
+          button.btn.btn-primary(type="button" onclick="toggleVisibility()")#photoButton Photo 1 of 3
+
+    .service-row
+      div.image-container
+        h3.section-header.index-subhead Patios/Walkways/Decks
+        p.service-item A lot of first impressions can be made when someone is walking up to your home. So having a clean and shining walkway can be very important. Having friends over to hangout on the back patio? Great time to have a new look. A clean patio can redesign your backyard or front of your house. We can even clean up those old decks!
+          
+          img.default-image(id="pw1", src="images/pw1.jpg") 
+          img.default-image(id="pw2", src="images/pw2.jpg" style="display: none;") 
+          img.default-image(id="pw3", src="images/pw3.jpg" style="display: none;") 
+          button.btn.btn-primary(type="button" onclick="toggleVisibility()")#photoButton Photo 1 of 3
+
+
+  script.
+    var currentPhotoIndex = 0;
+    var totalPhotos = 3; // Update this with the total number of photos
+
+    function toggleVisibility() {
+      var photos = ["pw1", "pw2", "pw3"];
+      var currentPhotoId = photos[currentPhotoIndex];
+      var currentPhoto = document.getElementById(currentPhotoId);
+      var nextPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      var nextPhotoId = photos[nextPhotoIndex];
+      var nextPhoto = document.getElementById(nextPhotoId);
+
+      currentPhoto.style.display = "none";
+      nextPhoto.style.display = "block";
+
+      currentPhotoIndex = nextPhotoIndex;
+
+      // Update button text with current photo number
+      var photoButton = document.getElementById("photoButton");
+      photoButton.textContent = "Photo " + (currentPhotoIndex + 1) + " of " + totalPhotos;
+    }
